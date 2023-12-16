@@ -11,7 +11,7 @@ int main(void)
 		P1OUT = 0x01;
 		for(int i = 0; i < 0xFFFF; i++);
 		P1OUT = 0x40;
-		for(int i = 0; i < 0xFFFF; i++);
+		for(int i = 0; i < 0x0FFFF; i++);
 	}
 
 	return 0;
