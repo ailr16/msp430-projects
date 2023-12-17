@@ -1,11 +1,12 @@
 #include <msp430g2553.h>
 
+#include "DIO.h"
+
 int main(void)
 {
 	WDTCTL = WDTPW | WDTHOLD;
-
-	P1DIR = 0x41;
-
+	setInputPin(0, 0, 0);
+	
 	while(1)
 	{
 		P1OUT = 0x01;
