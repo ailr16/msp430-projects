@@ -1,15 +1,23 @@
-APP		     :=	MSP430_app
+PROJECT_NAME :=	MSP430_app
 CC		     :=	msp430-elf-gcc
 CCFLAGS 	 := -Wall
-OUTPUT_DIR   := output
-OUTPUT_FILE  := output.o
+PROJECT_DIR  := $(CURDIR)
+BUILD_DIR    := $(PROJECT_DIR)/Build
+INCLUDE_DIR  := $(PROJECT_DIR)/Inc
+SOURCE_DIR   := $(PROJECT_DIR)/Src
+LINKER_DIR   := $(PROJECT_DIR)/Linker
 
-$(APP) : main.c
-	mkdir $(OUTPUT_DIR) -p
-	$(CC) main.c -mmcu=msp430g2553 $(CCFLAGS) -o ./$(OUTPUT_DIR)/$(OUTPUT_FILE)
+SRCS         := main.c
+SRCS         += $(wildcard $(SOURCE_DIR)/*.c)
+INCS		 := $(wildcard $(INCLUDE_DIR)/*.h)
+LINKER		 := $(wildcard $(LINKER_DIR)/*.ld)
+
+$(PROJECT_NAME) : $(SRCS)
+	mkdir $(BUILD_DIR) -p
+	$(CC) -o $(BUILD_DIR)/$@ $^  -mmcu=msp430g2553 $(CFLAGS) -I $(INCLUDE_DIR) -L $(LINKER)
 	
 flash:	
-	mspdebug tilib "prog ./$(OUTPUT_DIR)/$(OUTPUT_FILE)"
+	mspdebug tilib "prog $(BUILD_DIR)/$(PROJECT_NAME)"
 
 clean:
-	rm -r $(OUTPUT_DIR)
+	rm -r $(BUILD_DIR)
