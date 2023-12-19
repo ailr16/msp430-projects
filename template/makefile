@@ -16,8 +16,10 @@ $(PROJECT_NAME) : $(SRCS)
 	mkdir $(BUILD_DIR) -p
 	$(CC) -o $(BUILD_DIR)/$@ $^  -mmcu=msp430g2553 $(CFLAGS) -I $(INCLUDE_DIR) -L $(LINKER)
 	
+.PHONY: flash
 flash:	
 	mspdebug tilib "prog $(BUILD_DIR)/$(PROJECT_NAME)"
 
+.PHONY: clean
 clean:
 	rm -r $(BUILD_DIR)

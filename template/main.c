@@ -1,11 +1,13 @@
 #include <msp430g2553.h>
 
 #include "DIO.h"
+#include "PWM.h"
 
 int main(void)
 {
 	WDTCTL = WDTPW | WDTHOLD;
 	setInputPin(0, 0, 0);
+	setPwmPin(0, 0, 0);
 	
 	while(1)
 	{
