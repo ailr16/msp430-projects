@@ -2,6 +2,7 @@
 
 #include "DIO.h"
 #include "PWM.h"
+#include "GeneralFunctions.h"
 
 int main(void)
 {
@@ -15,13 +16,14 @@ int main(void)
 	{
 		unsigned char aux = P1IN;
 
-		if( ((P1IN >> 3) & 0x01) == 1 )
+		if( GetBit( P1IN, 3 ) == 1 )
 		{
 			P1OUT = 0x00;
+			ClearBit( &P1OUT, 0 );
 		}
 		else
 		{
-			P1OUT = 0x01;
+			SetBit( &P1OUT, 0 );
 		}
 	}
 
