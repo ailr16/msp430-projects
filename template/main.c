@@ -10,7 +10,7 @@ int main(void)
 
 	P1SEL  = 0x00;
     P1SEL2 = 0x00;	//all pins as i/o
-    P1DIR = 0x01;	//pin 0 as output
+    P1DIR = 0x41;	//pin 0 as output
 	
 	while(1)
 	{
@@ -20,10 +20,12 @@ int main(void)
 		{
 			P1OUT = 0x00;
 			ClearBit( &P1OUT, 0 );
+			SetBit( &P1OUT, 6 );
 		}
 		else
 		{
 			SetBit( &P1OUT, 0 );
+			ClearBit( &P1OUT, 6 );
 		}
 	}
 
