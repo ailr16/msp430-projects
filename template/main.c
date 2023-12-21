@@ -6,15 +6,23 @@
 int main(void)
 {
 	WDTCTL = WDTPW | WDTHOLD;
-	setInputPin(0, 0, 0);
-	setPwmPin(0, 0, 0);
+
+	P1SEL  = 0x00;
+    P1SEL2 = 0x00;	//all pins as i/o
+    P1DIR = 0x01;	//pin 0 as output
 	
 	while(1)
 	{
-		P1OUT = 0x01;
-		for(int i = 0; i < 0xFFFF; i++);
-		P1OUT = 0x40;
-		for(int i = 0; i < 0x0FFFF; i++);
+		unsigned char aux = P1IN;
+
+		if( ((P1IN >> 3) & 0x01) == 1 )
+		{
+			P1OUT = 0x00;
+		}
+		else
+		{
+			P1OUT = 0x01;
+		}
 	}
 
 	return 0;
