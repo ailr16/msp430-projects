@@ -7,25 +7,21 @@
 int main(void)
 {
 	WDTCTL = WDTPW | WDTHOLD;
-
-	P1SEL  = 0x00;
-    P1SEL2 = 0x00;	//all pins as i/o
-    P1DIR = 0x41;	//pin 0 as output
 	
+	setInputPin( DIO_PORT_1, DIO_PIN3 );
+	setOutputPin( DIO_PORT_1, DIO_PIN0 );
+
 	while(1)
 	{
 		unsigned char aux = P1IN;
 
-		if( GetBit( P1IN, 3 ) == 1 )
+		if( GetBit( P1IN, DIO_PIN3 ) == 0 )
 		{
-			P1OUT = 0x00;
-			ClearBit( &P1OUT, 0 );
-			SetBit( &P1OUT, 6 );
+			SetBit( &P1OUT, DIO_PIN0 );
 		}
 		else
 		{
-			SetBit( &P1OUT, 0 );
-			ClearBit( &P1OUT, 6 );
+			ClearBit( &P1OUT, DIO_PIN0 );
 		}
 	}
 
