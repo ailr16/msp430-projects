@@ -3,7 +3,6 @@
 #include "DIO.h"
 #include "PWM.h"
 #include "CLOCK.h"
-#include "GeneralFunctions.h"
 
 const ClockConfigType test = {
 	.DcoResistor  = CLOCK_DCO_RESISTOR_INTERNAL,

@@ -5,7 +5,7 @@ PROJECT_DIR  := $(CURDIR)
 BUILD_DIR    := $(PROJECT_DIR)/Build
 INCLUDE_DIR  := $(PROJECT_DIR)/Inc
 SOURCE_DIR   := $(PROJECT_DIR)/Src
-LINKER_DIR   := $(PROJECT_DIR)/Linker
+LINKER_DIR   := $(PROJECT_DIR)/.Linker
 
 SRCS         := main.c
 SRCS         += $(wildcard $(SOURCE_DIR)/*.c)
