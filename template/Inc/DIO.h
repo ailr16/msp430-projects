@@ -3,20 +3,27 @@
 
 #include <msp430g2553.h>
 
-#define DIO_PORT_1      1
-#define DIO_PORT_2      2
+#define DIO_PORT_1           1u
+#define DIO_PORT_2           2u
 
-#define DIO_PIN0        0
-#define DIO_PIN1        1
-#define DIO_PIN2        2
-#define DIO_PIN3        3
-#define DIO_PIN4        4
-#define DIO_PIN5        5
-#define DIO_PIN6        6
-#define DIO_PIN7        7
+#define DIO_PIN0             0u
+#define DIO_PIN1             1u
+#define DIO_PIN2             2u
+#define DIO_PIN3             3u
+#define DIO_PIN4             4u
+#define DIO_PIN5             5u
+#define DIO_PIN6             6u
+#define DIO_PIN7             7u
+
+#define DIO_PIN_LOW          0u
+#define DIO_PIN_HIGH         1u
+#define DIO_PIN_UNDEFINED    3u
 
 void setInputPin( unsigned char port, unsigned char pin );
 void setOutputPin( unsigned char port, unsigned char pin );
+unsigned char getPin( unsigned char port, unsigned char pin );
+void setPin( unsigned char port, unsigned char pin );
+void clearPin( unsigned char port, unsigned char pin );
 
 
 #endif

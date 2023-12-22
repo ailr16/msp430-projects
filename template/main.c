@@ -15,13 +15,13 @@ int main(void)
 	{
 		unsigned char aux = P1IN;
 
-		if( GetBit( P1IN, DIO_PIN3 ) == 0 )
+		if( getPin( DIO_PORT_1, DIO_PIN3) == DIO_PIN_LOW )
 		{
-			SetBit( &P1OUT, DIO_PIN0 );
+			setPin( DIO_PORT_1, DIO_PIN0 );
 		}
 		else
 		{
-			ClearBit( &P1OUT, DIO_PIN0 );
+			clearPin( DIO_PORT_1, DIO_PIN0 );
 		}
 	}
 
