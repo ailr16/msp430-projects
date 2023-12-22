@@ -24,9 +24,9 @@ int main(void)
 	while(1)
 	{
 		setPin( DIO_PORT_1, DIO_PIN0 );
-		for(unsigned int i = 0; i <= 0x6FFF; i++);
+		for(unsigned int i = 0; i <= 0x1FFF; i++);
 		clearPin( DIO_PORT_1, DIO_PIN0 );
-		for(unsigned int i = 0; i <= 0x6FFF; i++);
+		for(unsigned int i = 0; i <= 0x1FFF; i++);
 	}
 
 	return 0;
