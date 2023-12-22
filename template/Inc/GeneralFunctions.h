@@ -1,5 +1,5 @@
-#ifndef PWM
-#define PWM_H
+#ifndef GENERAL_FUNCTIONS
+#define GENERAL_FUNCTIONS
 
 #include <msp430g2553.h>
 
