@@ -12,7 +12,18 @@ const ClockConfigType testClock = {
 	.MclkDivider  = CLOCK_MCLK_DIVIDE_1,
 	.AclkDivider  = CLOCK_ACLK_DIVIDE_8,
 	.DcoConfig = {
-		.FrequencyRange = 2,
+		.FrequencyRange  = CLOCK_DCO_FREQUENCY_RANGE_8,
+		.Modulator       = 0u,
+		.FrequencySelect = CLOCK_DCO_FREQUENCY_SELECT_4
+	},
+	.Xt2Config = {
+		.Enabled = CLOCK_XT2_ENABLED_TRUE,
+		.RangeSelect = CLOCK_XT2_RANGE_400K_to_1M
+	},
+	.Xt1Config = {
+		.Mode = CLOCK_XT1_MODE_LOW_FREQUENCY,
+		.ClockSelect = CLOCK_XT1_CLOCK_SELECT_LF_32768K,
+		.Capacitor = CLOCK_XT1_CAPACITOR_6PF
 	}
 };
 
