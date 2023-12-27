@@ -15,9 +15,9 @@ LINKER		  := $(wildcard $(LINKER_DIR)/*.ld)
 
 DEBUG_PORT    := 2000
 
-$(PROJECT_NAME) : $(SRCS)
+all : $(SRCS)
 	mkdir $(BUILD_DIR) -p
-	$(CC) -o $(BUILD_DIR)/$@ $^  -mmcu=msp430g2553 $(CCFLAGS) -I $(INCLUDE_DIR) -L $(LINKER)
+	$(CC) -o $(BUILD_DIR)/$(PROJECT_NAME) $^  -mmcu=msp430g2553 $(CCFLAGS) -I $(INCLUDE_DIR) -L $(LINKER)
 	
 .PHONY: flash
 flash:	

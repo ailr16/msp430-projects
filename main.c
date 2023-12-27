@@ -10,8 +10,9 @@ const ClockConfigType testClock = {
 	.SmClkDivider = CLOCK_SMCLK_DIVIDE_1,
 	.MclkSource   = CLOCK_MCLK_SOURCE_DCO,
 	.MclkDivider  = CLOCK_MCLK_DIVIDE_1,
+	.AclkDivider  = CLOCK_ACLK_DIVIDE_8,
 	.DcoConfig = {
-		.FrequencyRange = CLOCK_DCO_FREQUENCY_RANGE_1
+		.FrequencyRange = 2,
 	}
 };
 
