@@ -14,11 +14,15 @@ LINKER		 := $(wildcard $(LINKER_DIR)/*.ld)
 
 $(PROJECT_NAME) : $(SRCS)
 	mkdir $(BUILD_DIR) -p
-	$(CC) -o $(BUILD_DIR)/$@ $^  -mmcu=msp430g2553 $(CFLAGS) -I $(INCLUDE_DIR) -L $(LINKER)
+	$(CC) -o $(BUILD_DIR)/$@ $^  -mmcu=msp430g2553 $(CFLAGS) -I $(INCLUDE_DIR) -L $(LINKER) -g
 	
 .PHONY: flash
 flash:	
 	mspdebug tilib "prog $(BUILD_DIR)/$(PROJECT_NAME)"
+
+.PHONY: debug
+debug:	
+	mspdebug tilib "gdb"
 
 .PHONY: clean
 clean:

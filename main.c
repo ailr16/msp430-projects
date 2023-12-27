@@ -4,17 +4,20 @@
 #include "PWM.h"
 #include "CLOCK.h"
 
-const ClockConfigType test = {
+const ClockConfigType testClock = {
 	.DcoResistor  = CLOCK_DCO_RESISTOR_INTERNAL,
 	.SmClkSource  = CLOCK_SMCLK_SOURCE_DCO,
 	.SmClkDivider = CLOCK_SMCLK_DIVIDE_1,
 	.MclkSource   = CLOCK_MCLK_SOURCE_DCO,
-	.MclkDivider  = CLOCK_MCLK_DIVIDE_8
+	.MclkDivider  = CLOCK_MCLK_DIVIDE_1,
+	.DcoConfig = {
+		.FrequencyRange = CLOCK_DCO_FREQUENCY_RANGE_1
+	}
 };
 
 int main(void)
 {
-	configureMclkSmclk( &test );
+	configureMclkSmclk( &testClock );
 	WDTCTL = WDTPW | WDTHOLD;
 	
 	setInputPin( DIO_PORT_1, DIO_PIN3 );
