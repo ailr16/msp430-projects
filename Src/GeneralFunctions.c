@@ -18,3 +18,13 @@ void ClearBit( volatile unsigned char *reg, unsigned char bit )
 {
     *reg &= ~(0x01 << bit);
 }
+
+void SetBitMask( volatile unsigned char *reg, unsigned char mask )
+{
+    *reg |= mask;
+}
+
+void ClearBitMask( volatile unsigned char *reg, unsigned char mask )
+{
+    *reg &= ~mask;
+}
