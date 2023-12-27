@@ -14,7 +14,7 @@ void configureMclkSmclk( const ClockConfigType *ClockConfig )
     DCOCTL = aux;
 
     aux = 0x00;
-    aux |= ClockConfig->DcoConfig.FrequencyRange << CLOCK_DCO_FREQUENCY_REG_OFFSET;
+    aux |= ClockConfig->DcoConfig.FrequencyRange << CLOCK_DCO_FREQUENCY_RANGE_REG_OFFSET;
     aux |= ClockConfig->AclkDivider << CLOCK_ACLK_DIVIDE_REG_OFFSET;
     aux |= ClockConfig->Xt1Config.Mode << CLOCK_XT1_MODE_REG_OFFSET;
     aux |= ClockConfig->Xt2Config.Enabled << CLOCK_XT2_ENABLED_REG_OFFSET;
