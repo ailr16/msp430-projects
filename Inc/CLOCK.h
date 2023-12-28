@@ -69,6 +69,7 @@
 #define CLOCK_DCO_FREQUENCY_SELECT_DEFAULT    CLOCK_DCO_FREQUENCY_SELECT_4
 
 #define CLOCK_ACLK_DIVIDE_REG_OFFSET          4u
+#define CLOCK_ACLK_DIVIDE_MASK                0x30
 #define CLOCK_ACLK_DIVIDE_1                   0u
 #define CLOCK_ACLK_DIVIDE_2                   1u
 #define CLOCK_ACLK_DIVIDE_4                   2u
@@ -110,8 +111,15 @@
 #define CLOCK_XT1_CAPACITOR_12P5F          3u
 #define CLOCK_XT1_CAPACITOR_DEFAULT        CLOCK_XT1_CAPACITOR_6PF
 
+#define CLOCK_PREDEFINED_FREQ_1MHZ     0u
+#define CLOCK_PREDEFINED_FREQ_8MHZ     1u
+#define CLOCK_PREDEFINED_FREQ_12MHZ    2u
+#define CLOCK_PREDEFINED_FREQ_16MHZ    3u
+#define CLOCK_PREDEFINED_FREQ_CUSTOM   7u
+
 typedef struct _DcoConfigType
 {
+    unsigned char DcoResistor     : 1;
     unsigned char Modulator       : 5;
     unsigned char FrequencyRange  : 4;
     unsigned char FrequencySelect : 3;
@@ -132,12 +140,12 @@ typedef struct _Lfxt1ConfigType
 
 typedef struct _ClockConfigType
 {
-    unsigned char   DcoResistor  : 1;
-    unsigned char   SmClkSource  : 1;
-    unsigned char   SmClkDivider : 2;
-    unsigned char   MclkSource   : 2;
-    unsigned char   MclkDivider  : 2;
-    unsigned char   AclkDivider  : 2;
+    unsigned char SmClkSource    : 1;
+    unsigned char SmClkDivider   : 2;
+    unsigned char MclkSource     : 2;
+    unsigned char MclkDivider    : 2;
+    unsigned char AclkDivider    : 2;
+    unsigned char PredefinedFreq : 3;
     Lfxt1ConfigType Xt1Config;
     Xt2ConfigType   Xt2Config;
     DcoConfigType   DcoConfig;
