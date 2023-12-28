@@ -7,9 +7,11 @@ BUILD_DIR     := $(PROJECT_DIR)/Build
 INCLUDE_DIR   := $(PROJECT_DIR)/Inc
 SOURCE_DIR    := $(PROJECT_DIR)/Src
 LINKER_DIR    := $(PROJECT_DIR)/.Linker
+CONFIG_DIR    := $(PROJECT_DIR)/Config
 
 SRCS          := main.c
 SRCS          += $(wildcard $(SOURCE_DIR)/*.c)
+SRCS          += $(wildcard $(CONFIG_DIR)/*.c)
 INCS		  := $(wildcard $(INCLUDE_DIR)/*.h)
 LINKER		  := $(wildcard $(LINKER_DIR)/*.ld)
 
