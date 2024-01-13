@@ -19,11 +19,16 @@
 #define DIO_PIN_HIGH         1u
 #define DIO_PIN_UNDEFINED    3u
 
+#define DIO_PIN_FUNCTION_IO               0u
+#define DIO_PIN_FUNCTION_PERIPH_PRIMARY   1u
+#define DIO_PIN_FUNCTION_PERIPH_SECONDARY 2u
+
+
+void setPinFunction( unsigned char port, unsigned char pin, unsigned char function );
 void setInputPin( unsigned char port, unsigned char pin );
 void setOutputPin( unsigned char port, unsigned char pin );
 unsigned char getPin( unsigned char port, unsigned char pin );
 void setPin( unsigned char port, unsigned char pin );
 void clearPin( unsigned char port, unsigned char pin );
-
 
 #endif

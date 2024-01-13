@@ -1,6 +1,51 @@
 #include "DIO.h"
 #include "GeneralFunctions.h"
 
+void setPinFunction( unsigned char port, unsigned char pin, unsigned char function )
+{
+    switch (port)
+    {
+        case DIO_PORT_1:
+            if( function == DIO_PIN_FUNCTION_IO )
+            {
+                ClearBit( &P1SEL, pin );
+                ClearBit( &P1SEL2, pin );
+            }
+            else if( function == DIO_PIN_FUNCTION_PERIPH_PRIMARY )
+            {
+                SetBit( &P1SEL, pin );
+                ClearBit( &P1SEL2, pin );
+            }
+            else if( function == DIO_PIN_FUNCTION_PERIPH_SECONDARY )
+            {
+                SetBit( &P1SEL, pin );
+                SetBit( &P1SEL2, pin );
+            }
+            break;
+
+        case DIO_PORT_2:
+            if( function == DIO_PIN_FUNCTION_IO )
+            {
+                ClearBit( &P2SEL, pin );
+                ClearBit( &P2SEL2, pin );
+            }
+            else if( function == DIO_PIN_FUNCTION_PERIPH_PRIMARY )
+            {
+                SetBit( &P2SEL, pin );
+                ClearBit( &P2SEL2, pin );
+            }
+            else if( function == DIO_PIN_FUNCTION_PERIPH_SECONDARY )
+            {
+                SetBit( &P2SEL, pin );
+                SetBit( &P2SEL2, pin );
+            }
+            break;
+
+        default:
+            break;
+    }
+}
+
 void setInputPin( unsigned char port, unsigned char pin )
 {
     switch( port )
